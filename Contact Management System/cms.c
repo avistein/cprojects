@@ -86,6 +86,15 @@ void add_contact(ND **ptr){
 	strcpy(fno,data->info.phone);
 	strcat(fno,".txt");
 	fp=fopen(fno,"w");
+	if(fp==NULL){
+		clear();
+		mvprintw(1,0,"Can't open file");
+		mvprintw(2,0,"Enter any key to exit");
+		refresh();
+		getch();
+		endwin();
+		exit(1);
+	}
 	fputs(details.org,fp);
 	fputs("\n",fp);
 	fputs(details.email,fp);
@@ -114,9 +123,13 @@ void add_to_file(ND *temp,char file_name[30]){
 	FILE *fp;
 	fp=fopen(file_name,"w");
 	if(fp==NULL){
-		printw("\nDatabase is not present or corrupted");
+		clear();
+		mvprintw(1,0,"Can't open file");
+		mvprintw(2,0,"Enter any key to exit");
 		refresh();
-		return ;
+		getch();
+		endwin();
+		exit(1);
 	}
 	while(temp){
 		fputs(temp->info.name,fp);
@@ -198,6 +211,15 @@ void edit(char file_name[30],WINDOW *menu_win){
 		strcat(fname,".txt");
 		remove(fname);
 		fp=fopen(fname,"w");
+		if(fp==NULL){
+			clear();
+			mvprintw(1,0,"Can't open file");
+			mvprintw(2,0,"Enter any key to exit");
+			refresh();
+			getch();
+			endwin();
+			exit(1);
+		}
 		fputs(org,fp);
 		fputs("\n",fp);
 		fputs(email,fp);
