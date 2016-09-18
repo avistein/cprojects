@@ -334,7 +334,7 @@ void sort(ND *sorting){
 }
 
 /***view,search & favourite***/
-void vsf(ND **ptr1,ND **ptr2,int select){
+void vsf(ND **ptr1,ND **ptr2,int select){  //select ->1:Search 2:View All 3:Favourites
 	char *choices_int[] = { 
 			"Delete",
 			"Back",
