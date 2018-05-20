@@ -39,9 +39,7 @@ int calcParity(int hamcode[], int combi[], int rp, int n){
             p = p ^ hamcode[combi[i]];
         }
     }
-    if(p)
-        return 1;
-    return 0;
+    return p;
 }
 
 void calcVRC(int hamcode[], int n, int redBits){
